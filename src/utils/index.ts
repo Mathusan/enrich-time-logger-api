@@ -6,7 +6,7 @@ import config from '../../config';
 
 
 export const generatePassword = async (password : any) => {
-        return await bcrypt.hash(password, Number(config.salt));
+        return await bcrypt.hash(password, Number(process.env.SALT));
 };
 
 
@@ -15,11 +15,11 @@ export const validatePassword = async (enteredPassword : any, savedPassword : an
 };
 
 export const generateToken = async (payload : any) => {
-        return await jwt.sign(payload,`${config.accessTokenKey}` , { expiresIn: '30d'} )
+        return await jwt.sign(payload,`${process.env.ACCESS_TOKEN_SECRET_KEY}` , { expiresIn: '30d'} )
 }
 
 export const generateRefreshToken = async (payload : any) =>{
-        return await jwt.sign(payload, `${config.refreshTokenKey}`, {expiresIn :'2d'} )
+        return await jwt.sign(payload, `${process.env.REFRESH_TOKEN_SECRET_KEY}`, {expiresIn :'2d'} )
 }
 
 export const ROLES = {

@@ -12,7 +12,7 @@ export const initializeRefreshJwtStrategy = (passport : any)=> {
             }
             return data
         }]),
-        secretOrKey : config.refreshTokenKey,
+        secretOrKey : process.env.REFRESH_TOKEN_SECRET_KEY,
 
     }, async (payload,done) => {
         try {

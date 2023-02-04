@@ -4,7 +4,7 @@ import config from '../../config'
 
 
 export default ()=>{
-    mongoose.connect(`${config.dbURL}`, {
+    mongoose.connect(`${process.env.MONGO_URI}`, {
         useNewUrlParser: true
       } as ConnectOptions)
     console.log('Db Connected');

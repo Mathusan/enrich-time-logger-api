@@ -37,6 +37,6 @@ app.use('/time' , timeRouter)
 
 app.use(errorMiddleware)
 
-app.listen(config.port, ()=>{
-    console.log(`Server running at ${config.port}`)
+app.listen(process.env.PORT, ()=>{
+    console.log(`Server running at ${process.env.PORT}`)
 })
