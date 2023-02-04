@@ -5,7 +5,7 @@ import { userFindByIDService } from '../services/user/userService'
 export const initializeJwtStrategy = (passport : any)=> {
     passport.use('jwt',new Strategy({
         jwtFromRequest : ExtractJwt.fromAuthHeaderAsBearerToken(),
-        secretOrKey : process.env.ACCESS_TOKEN_SECRET_KEY,
+        secretOrKey : config.accessTokenKey,
         ignoreExpiration: false
     }, async (payload,done) => {
         try {
